@@ -8,6 +8,7 @@ package org.afdemp.springbootexample1.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,35 +16,43 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author mac
  */
-@Controller
-@RequestMapping("/")
+//@Controller
+//@RequestMapping("/")
+//public class Home {
+//    
+//    @RequestMapping("/")
+//    public String Home(ModelMap view) {
+//        view.addAttribute("greeting", new String("Hello George"));
+//        return "welcome";
+//    }
+//    
+//}
+
+
+
+@RestController
 public class Home {
+
+    @GetMapping("/")
+    public String home() {
+        return ("<h1>Welcome home SIR</h1>");
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return ("<h1>Welcome ADMIN!!!</h1>");
+    }
+
     
-    @RequestMapping("/")
-    public String Home(ModelMap view) {
-        view.addAttribute("greeting", new String("Hello George"));
-        return "welcome";
+        @GetMapping("/user")
+    public String user() {
+        return ("<h1>Welcome USER!!!</h1>");
     }
     
-}
-
-
-
-//@RestController
-//public class Home {
-//
-//    @GetMapping("/")
-//    public String home() {
-//        return ("<h1>Welcome home SIR</h1>");
-//    }
-//
-//    @GetMapping("/admin")
-//    public String admin() {
-//        return ("<h1>Welcome ADMIN!!!");
-//    }
-//
-//    @GetMapping("/user")
+    
+//    // Comes with post
+//    @PostMapping("/user")
 //    public String user() {
-//        return ("<h1>Welcome USER!!!");
+//        return ("<h1>Welcome USER!!!</h1>");
 //    }
-//}
+}
